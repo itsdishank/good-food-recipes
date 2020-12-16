@@ -1,0 +1,135 @@
+﻿{%extends 'recipe/base.html' %}
+{%block title_block%}Recipe Home Page{%endblock%}
+
+{%block content%}
+{% load static %}
+
+    <main>
+
+        <div class="logo">
+            <a href="#home"> GOOD FOOD </a><br />
+        </div>
+        <div class="logosub">
+            <a href="#home">A gathering for food lovers</a>
+        </div>
+
+        <div class="sliderbg">
+            <div class="slide hi-slide">
+                <div class="hi-prev">&#10094;</div>
+                <div class="hi-next">&#10095;</div>
+                <ul>
+
+                    <li>
+                        <img src="{% static 'images/pexels-photo-3596688.jpeg' %}" >                        
+                    </li>
+                    <li>
+                        <img src="{% static 'images/pexels-photo-2122294.jpeg' %}" >                        
+                    </li>
+                    <li>
+                        <img src="{% static 'images/pexels-photo-264892.jpeg' %}" >                        
+                    </li>
+                    <li>
+                        <img src="{% static 'images/pexels-photo-2454533.jpeg' %}" >                        
+                    </li>
+                    <li>
+                        <img src="{% static 'images/pexels-photo-769289.jpeg' %}" >                        
+                    </li>
+                    <li>
+                        <img src="{% static 'images/pexels-photo-2641886.jpeg' %}" >                        
+                    </li>
+                    <li>
+                        <img src="{% static 'images/pexels-photo-827513.jpeg' %}" >                        
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script src="{%static "js/jquery.hislide.js" %}"></script>
+        <script>
+                $('.slide').hiSlide();
+        </script>
+
+<!--         <div style="background: var(--main-black-color)">
+            <h2 class="list_head">List of recipes</h2>
+            <div class="cardsbg">
+                <div id="dishank" class="container">
+                    <div class="row">
+                  <div class="menu-item-tile col-md-4">
+                    <div class="row">
+                      <div class="menu-item-description">
+                        <a href="{{recipe.get_absolute_url}}"><div id="recipe_list"><img src="{{recipe.first_image.images.url}}"></div></a>
+                        <img class="card-img-top" src="{{recipe.image.url}}" alt="">
+                        <a href="{{recipe.get_absolute_url}}"><h3 class="menu-item-title">{{recipe.title|truncatewords:6|linebreaks}}</h3></a>
+                        <div class="menu-item-price"><span>Published on {{recipe.publish}} by {{recipe.user|title}}</span></div>
+                        <div class="menu-item-details">{{recipe.description|truncatewords:40|linebreaks}}</div>
+                      </div>
+                    </div>
+                    <hr class="visible-xs">
+                  </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        
+
+        <div class="cardsbg">
+            <div id="dishank" class="container">
+                <div class="row">
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <a href="#"><div id="nsp"><!-- <div class="date"><div class="text">Started on .... <span class="price">From $...</span></div></div> --></div></a>
+                        <h2>Neopolitain-Style Pizza</h2>
+                        <p style="font-size:15px;">The Neapolitan pizza also known as Naples-style pizza, is a style of pizza made with tomatoes and mozzarella cheese.</p>
+                        <a href=""><h3>Learn More</h3></a>
+                    </div>
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <a href="#"><div id="ccd"><!-- <div class="date"><div class="text">Started on .... <span class="price">From $...</span></div></div> --></div></a>
+                        <h2>Chocolate Desserts</h2>
+                        <p style="font-size:15px;">These creative and simple-to-make chocolate recipes turn old classics into the sweetest and most decadent versions of themselves.</p>
+                        <a href=""><h3>Learn More</h3></a>
+                    </div>
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <a href="#"><div id="tfc"><!-- <div class="date"><div class="text">Started on .... <span class="price">From $...</span></div></div> --></div></a>
+                        <h2>Traditional French Cuisine</h2>
+                        <p style="font-size:15px;">French cuisine consists of the cooking traditions and practices from France.Cheese and wine are a major part of the cuisine. They play different roles regionally and nationally, with many variations and appellation d'origine contrôlée (AOC) (regulated appellation) laws.</p>
+                        <a href=""><h3>Learn More</h3></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="quotebox">
+            <div class="quote">
+                " Food for your thought, served fresh and hot. "
+            </div>
+        </div>
+    </main>
+    <div id="dishank" class="container-fluid">
+
+        <div class="row">
+            <div id="giftcard" class="upperdiv col-md-4 col-sm-12">
+                <div class="abovefooter">
+                    <hr><h1 style="color: rgb(52, 68, 101);">BUY GIFT CARDS ONLINE</h1><hr>
+                    <p style="color: rgb(52, 68, 101);">Provide with our Gift Card to whom you most want and is sure.</p>
+                    <a href=""><span>Gift Card</span></a>
+                </div>
+            </div>
+            <div id="email" class="upperdiv col-md-4 col-sm-12">
+                <div class="abovefooter">
+                    <hr><h1>SUBSCRIBE TO GOODFOOD MAGAZINE</h1><hr>
+                    <p>Get recipes, tips, and news delivered to your inbox.</p>
+                    <form>
+                        <input type="email" placeholder="Enter Your Email... *"><br class="submit"><br class="submit"><input type="submit" value="Subscribe">
+                    </form>
+                </div>
+            </div>
+            <div id="store" class="upperdiv col-md-4 col-sm-12">
+                <div class="abovefooter">
+                    <hr><h1>visit our store</h1><hr>
+                    <p>Here you’ll find a carefully chosen kitchen inventory.</p>
+                    <a href=""><span>Explore Shop</span></a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+{%endblock%}

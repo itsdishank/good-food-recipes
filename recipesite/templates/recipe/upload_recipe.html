@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>{%block title_block%}{%endblock%}</title>
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Pacifico&family=Roboto:wght@500&family=Sansita+Swashed:wght@900&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet"><!-- 
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet"> -->
+    <link href='https://fonts.googleapis.com/css?family=ABeeZee' rel='stylesheet'>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="{%static "css/flickity.css" %}" >
+    <link rel="stylesheet" type="text/css" href="{%static "css/homepage.css" %}" >
+    <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
+    </head>
+<body>
+
+    <header class="anuragh">
+        <div class="anuragn" id="myTopnav">
+            <!-- <span class="navhead"> -->
+            <a href="/" class="leftnav">Home</a>
+            <a href="/recipe_list" class="leftnav">Recipes</a>
+            <a href="/about" class="leftnav">About</a>
+            <!-- </span> -->
+            {% if user.is_authenticated %}
+            <a href="/logout" class="login">Logout</a>
+            <a class="login" href="/profile"><span class="hello-msg">Hello, {{request.user}} <img src="{% static 'images/loginicon.png' %}"/></span></a>
+
+            {% else %}
+            <!-- <i class="fa fa-sign-in login" style="font-size:36px; padding-left: 0px;"></i> -->
+            <a href="/login" class="login" style="padding-right: 5px;">Login <i class="fa fa-sign-in login" style="font-size:36px; padding: 0px; margin-top: -2px"></i></a>
+            <!-- <i class="fa fa-sign-in login" style="font-size:36px; padding-left: 0px;"></i> -->
+            <a href="/register" class="login" style="padding-right: 5px;">Signup <i class="fa fa-sign-in login" style="font-size:36px; padding: 0px;"></i></a><!-- <i class="fa fa-sign-in login" style="font-size:36px"></i> -->
+
+            {% endif %}
+            <!-- <a href="/register" class="login"></a> -->
+            
+
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <i class="fa fa-bars"></i>
+            </a>
+                <hr class="btwn"></div>
+    </header>
+    
+    
+    <div class="content">
+        <main class="upload_form">
+    <input type="file" multiple><br>
+    <label>Title</label>
+    <input type="text" id="title" class="form-control"><br>
+    <!-- <label>Tags</label>
+    <textarea id="tags" class="form-control"></textarea><br> -->
+    <!-- <input type="text" id="tags" class="form-control"><br> -->
+    <label>Description</label>
+    <textarea id="description" class="form-control"></textarea><br>
+    <label>Ingredients</label>
+    <textarea id="ingredients" class="form-control"></textarea><br>
+    <label>Recipe</label>
+    <textarea id="body" class="form-control"></textarea><br>
+    <label for="status">Status</label>
+        <select id="status" name="status" class="form-control">
+            <option value="draft">Draft</option>
+            <option value="published">Published</option>
+        </select><br>
+    <label>Preparation Time (in minutes)</label>
+    <input type="number" id="prep_time" class="form-control"><br>
+    <label>Cooking Time (in minutes)</label>
+    <input type="number" id="cook_time" class="form-control"><br>
+    <label>Servings (in minutes)</label>
+    <input type="number" id="servings" class="form-control"><br>
+    <label>Yields (in minutes)</label>
+    <input type="text" id="yields" class="form-control"><br>
+    <button type="button" id="saveBtn" class="btn btn-primary mt-4">Save</button>
+    <!-- <a href="/profile"><button type="button" id="saveBtn" class="btn btn-primary mt-4">Save</button></a> -->
+</main>
+<script>
+    
+     document.addEventListener('DOMContentLoaded', function() {
+        var files = []
+        FilePond.registerPlugin(FilePondPluginFileValidateSize);
+        FilePond.registerPlugin(FilePondPluginFileValidateType);
+        FilePond.setOptions({
+            allowMultiple:true,
+            maxFiles:7,
+            maxFileSize: '3MB'
+        })
+        const inputElement = document.querySelector('input[type="file"]');
+        const pond = FilePond.create( inputElement, {
+            acceptedFileTypes:['image/png', 'image/jpeg', 'image/jpg'],
+            onaddfile: (err, fileItem) => {
+                if (!err) {
+                files.push(fileItem.file)
+                }
+                console.log(files)
+            },
+            onremovefile: (err, fileItem) => {
+                const index = files.indexOf(fileItem.file)
+                if (index > -1) {
+                    files.splice(index, 1)
+                }
+                console.log(files)
+            }
+        } );
+
+        var formData = new FormData();
+        $(document).on('click', '#saveBtn', function(e) {
+            formData.append('length', files.length)
+            formData.append('title', $('#title').val())
+            // formData.append('tags', $('#tags').val())
+            // formData.append('tags', $('#tags').val())
+            formData.append('description', $('#description').val())
+            formData.append('ingredients', $('#ingredients').val())
+            formData.append('body', $('#body').val())
+            formData.append('status', $('#status').val())
+            formData.append('prep_time', $('#prep_time').val())
+            formData.append('cook_time', $('#cook_time').val())
+            formData.append('servings', $('#servings').val())
+            formData.append('yields', $('#yields').val())
+            for (var i = 0; i < files.length; i++) {
+                formData.append('images' + i, files[i])
+            }
+            formData.append('csrfmiddlewaretoken', '{{ csrf_token }}')
+
+            $.ajax({
+                type: 'POST',
+                url: '{% url "upload_recipe" %}',
+                data: formData,
+                cache: false,
+                processData: false,
+                contentType: false,
+                enctype: 'multipart/form-data',
+                success: function (){
+                    alert('The post has been created!')
+                    window.location.href = "/profile";
+                },
+                error: function(xhr, errmsg, err) {
+                    console.log(xhr.status + ":" + xhr.responseText)
+                }
+            })
+        })
+    })
+</script>
+    </div>
+
+        <!-- Footer -->
+    <footer class="page-footer">
+        
+        <h1>GOOD FOOD</h1>
+        <!-- Footer Elements -->
+        <div class="container">
+
+            <!-- Grid row-->
+            <div class="row">
+
+                <!-- Grid column -->
+                <div class="col-md-12">
+                    <div class="mb-5 flex-center" style="margin-bottom: 0rem!important;">
+
+                        <!-- Facebook -->
+                        <a class="navthings" href="index.html">
+                            <h2>Home</h2>
+                        </a>
+                        <!-- Twitter -->
+                        <a class="navthings" href="#Recipes">
+                            <h2>Recipes</h2>
+                        </a>
+                        <!-- Google +-->
+                        <a class="navthings" href="About.html">
+                            <h2>About Us</h2>
+                        </a>
+                        
+                    </div>
+                </div>
+                <!-- Grid column -->
+
+            </div>
+
+            <!--  -->
+        </div>
+        <!-- Footer Elements -->
+
+
+    </footer>
+    <script src="{%static "js/Burger.js" %}"></script>
+    <!-- <script src="{%static "js/slider.js" %}"></script> -->
+    <script src="{%static "js/flickity.pkgd.js" %}"></script>
+<!-- 
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    FilePond Stuff -->
+    <!-- <script src="https://unpkg.com/filepond/dist/filepond.js"></script>
+    <script src="https://unpkg.com/filepond-plugin-file-validate-size/dist/filepond-plugin-file-validate-size.js"></script>
+    <script src="https://unpkg.com/filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.js"></script>
+ --> 
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        <!-- FilePond Stuff -->
+        <script src="https://unpkg.com/filepond/dist/filepond.js"></script>
+        <script src="https://unpkg.com/filepond-plugin-file-validate-size/dist/filepond-plugin-file-validate-size.js"></script>
+        <script src="https://unpkg.com/filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.js"></script>
+
+</body>
+</html>

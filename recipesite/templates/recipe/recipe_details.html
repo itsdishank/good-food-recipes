@@ -1,0 +1,140 @@
+﻿    {%extends 'recipe/base.html' %}
+{%block title_block%}{{recipe.title}}{%endblock%}
+
+{%block content%}
+{% load static %}
+    <main class="detailspage">
+        <div class="recipeholder">
+            <div class="recipetitle">{{recipe.title}}</div>
+            {%if recipe.tags.all%}
+                <p>Tags:
+                    {%for tag in recipe.tags.all %}
+                        <span class="tagbox">
+                            <a href="{%url 'recipe_list_by_tag_name' tag.slug%}">
+                                {{tag.name}}{%if not forloop.last%},{%endif%}
+                            </a>
+                        </span>
+                    {%endfor%}
+                </p>
+            {%endif%}
+            <!-- {%if tag%}
+                <h2>Recipes tagged with '{{tag.name}}'</h2>
+            {%endif%} -->
+            <!-- {%if recipe.tags%}
+                {{recipe.tags.all|join:','}}
+            {%endif%} -->
+            <div class="reciperating">
+                <fieldset class="rating">
+                    <input type="radio" id="star5" name="rating" value="5" /><label class="full" for="star5" title="Awesome - 5 stars"></label>
+                    <input type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
+                    <input type="radio" id="star4" name="rating" value="4" /><label class="full" for="star4" title="Pretty good - 4 stars"></label>
+                    <input type="radio" id="star3half" name="rating" value="3 and a half" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
+                    <input type="radio" id="star3" name="rating" value="3" /><label class="full" for="star3" title="Meh - 3 stars"></label>
+                    <input type="radio" id="star2half" name="rating" value="2 and a half" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
+                    <input type="radio" id="star2" name="rating" value="2" /><label class="full" for="star2" title="Kinda bad - 2 stars"></label>
+                    <input type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
+                    <input type="radio" id="star1" name="rating" value="1" /><label class="full" for="star1" title="Sucks big time - 1 star"></label>
+                    <input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
+                </fieldset>
+            </div>
+
+            <div class="recipefluid">
+                <div class="row">
+                    <div class="col-md-9 col-xs-12">
+                        <div class="recipeimg">
+                            <!-- <img src="{{request.recipe.image.image.url}}{% static 'images/s2.jpg' %}" /> -->
+                            <div id="carousel-example-1z" class="carousel slide carousel-fade" data-ride="carousel">
+    <!--Indicators-->
+                                <ol class="carousel-indicators">
+                                {% for p in photos %}
+                                  <li data-target="#carousel-example-1z" data-slide-to="{{ forloop.counter0 }}" class="{% if forloop.counter0 == 0 %} active {% endif %}"></li>
+                                {% endfor %}
+                                </ol>
+                                <!--/.Indicators-->
+                                <!--Slides-->
+                                <div class="carousel-inner" role="listbox">
+                                  {%if photos%}
+                    <!-- <a href="{{recipe.get_absolute_url}}"><div id="recipe_list"><img src="{{recipe.first_image.images.url}}"></div></a> -->
+                
+                                      {% for p in photos %}
+                                      <div class="carousel-item {% if forloop.counter0 == 0 %} active {% endif %}">
+                                        <img class="d-block w-100" src="{{p.images.url}}"
+                                          alt="First slide">
+                                      </div>
+                                      {% endfor %}
+                                <a class="carousel-control-prev" href="#carousel-example-1z" role="button" data-slide="prev">
+                                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                  <span class="sr-only">Previous</span>
+                                </a>
+                                <a class="carousel-control-next" href="#carousel-example-1z" role="button" data-slide="next">
+                                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                  <span class="sr-only">Next</span>
+                                </a>
+                                  {%else%}
+                                      <img class="d-block w-100" src="{% static "images/No-Image-Found.png" %}"
+                                          alt="First slide">
+                                        <!-- <a href="{{recipe.get_absolute_url}}"><div id="recipe_list"><img src="{% static "images/No-Image-Found.png" %}"></div></a> -->
+                                  {%endif%}
+                                  <!--/First slide-->
+                                <!--/.Slides-->
+                                <!--Controls-->
+                                <!--/.Controls-->
+                              </div>
+
+                        </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-xs-12">
+                        <div class="recipeprop">
+                            <div class="recipeprop1">
+                                <!-- Include as many "recipepropdetails" as required-->
+                                <div class="recipepropdetails">
+                                    <h3>Preparation Time</h3>
+                                    <span>{{recipe.prep_time}} min</span>
+                                </div>
+                                <div class="recipepropdetails">
+                                    <h3>Cooking Time</h3>
+                                    <span>{{recipe.cook_time}} min</span>
+                                </div>
+                                <div class="recipepropdetails">
+                                    <h3>Total Time</h3>
+                                    <span>{{total_time}} min</span>
+                                </div>
+                                <div class="recipepropdetails">
+                                    <h3>Servings</h3>
+                                    <span>{{recipe.servings}} servings</span>
+                                </div>
+                                <div class="recipepropdetails">
+                                    <h3>Yields</h3>
+                                    <span>{{recipe.yields}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="recipeingredients col-md-6 col-xs-12">
+                    <h2>Ingredients</h2>
+                    {%for ingredient in split_ingredients%}
+                        <input type="checkbox" name="ingredients" /> {{ingredient}} <br />
+                    {%endfor%}
+                </div>
+            </div>
+            <div class="recipesteps">
+                <h2>Directions</h2>
+                {%for steps in split_body%}
+                        <span>Step {{forloop.counter}}</span>
+                        <p> {{steps}}</p>
+                {%endfor%}
+                <!-- {{recipe.body}} -->
+                <!-- <ol>
+                    <li>Bring Water to boil</li>
+                    <li>Add Noodles and Spices</li>
+                    <li>Wait for noodles to be al dente</li>
+                    <li>Turn off stove and wait to cool before serving</li>
+                </ol> -->
+            </div>
+        </div>
+    </main>
+{%endblock%}

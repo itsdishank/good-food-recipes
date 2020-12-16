@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>{%block title_block%}{%endblock%}</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Pacifico&family=Roboto:wght@500&family=Sansita+Swashed:wght@900&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet"><!-- 
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet"> -->
+    <link href='https://fonts.googleapis.com/css?family=ABeeZee' rel='stylesheet'>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" type="text/css" href="{%static "css/flickity.css" %}" >
+    <link rel="stylesheet" type="text/css" href="{%static "css/homepage.css" %}" >
+    <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
+    </head>
+<body>
+
+    <header class="anuragh">
+        <div class="anuragn" id="myTopnav">
+            <!-- <span class="navhead"> -->
+            <a href="/" class="leftnav">Home</a>
+            <a href="/recipe_list" class="leftnav">Recipes</a>
+            <a href="/about" class="leftnav">About</a>
+            <!-- </span> -->
+            {% if user.is_authenticated %}
+            <a href="/logout" class="login">Logout</a>
+            <a class="login" href="/profile"><span class="hello-msg">Hello, {{request.user}} <img src="{% static 'images/loginicon.png' %}"/></span></a>
+
+            {% else %}
+            <!-- <i class="fa fa-sign-in login" style="font-size:36px; padding-left: 0px;"></i> -->
+            <a href="/login" class="login" style="padding-right: 5px;">Login <i class="fa fa-sign-in login" style="font-size:36px; padding: 0px; margin-top: -2px"></i></a>
+            <!-- <i class="fa fa-sign-in login" style="font-size:36px; padding-left: 0px;"></i> -->
+            <a href="/register" class="login" style="padding-right: 5px;">Signup <i class="fa fa-sign-in login" style="font-size:36px; padding: 0px;"></i></a><!-- <i class="fa fa-sign-in login" style="font-size:36px"></i> -->
+
+            {% endif %}
+            <!-- <a href="/register" class="login"></a> -->
+            
+
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <i class="fa fa-bars"></i>
+            </a>
+                <hr class="btwn"></div>
+    </header>
+    
+    <div class="content">
+        {%block content%}{%endblock%}
+    </div>
+        <!-- Footer -->
+    <footer class="page-footer">
+
+        <h1>GOOD FOOD</h1>
+        <!-- Footer Elements -->
+        <div class="container">
+
+            <!-- Grid row-->
+            <div class="row">
+
+                <!-- Grid column -->
+                <div class="col-md-12">
+                    <div class="mb-5 flex-center">
+
+                        <!-- Facebook -->
+                        <a class="navthings" href="/">
+                            <h2>Home</h2>
+                        </a>
+                        <!-- Twitter -->
+                        <a class="navthings" href="/recipe_list">
+                            <h2>Recipes</h2>
+                        </a>
+                        <!-- Google +-->
+                        <a class="navthings" href="/about">
+                            <h2>About Us</h2>
+                        </a>
+                        
+                    </div>
+                </div>
+                <!-- Grid column -->
+
+            </div>
+            <div class="row">
+
+                <!-- Grid column -->
+                <div class="col-md-12">
+                    <div class="mb-5 flex-center">
+
+                        <!-- Facebook -->
+                        <a class="fb-ic" href="">
+                            <i class="fab fa-facebook-f fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                        </a>
+                        <!-- Twitter -->
+                        <a class="tw-ic" href="">
+                            <i class="fab fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                        </a>
+                        <!-- Google +-->
+                        <a class="gplus-ic" href="" >
+                            <i class="fab fa-google-plus-g fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                        </a>
+                        <!--Linkedin -->
+                        <a class="li-ic" href="" >
+                            <i class="fab fa-linkedin-in fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                        </a>
+                        <!--Instagram-->
+                        <a class="ins-ic" href="" >
+                            <i class="fab fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                        </a>
+                        <!--Pinterest-->
+                        <a class="pin-ic" href="" >
+                            <i class="fab fa-pinterest fa-lg white-text fa-2x"> </i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Grid column -->
+
+            </div>
+            <!-- Grid row-->
+
+        </div>
+        <!-- Footer Elements -->
+
+
+    </footer>
+    <script src="{%static "js/Burger.js" %}"></script>
+    <!-- <script src="{%static "js/slider.js" %}"></script> -->
+    <script src="{%static "js/flickity.pkgd.js" %}"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        <!-- FilePond Stuff -->
+    <script src="https://unpkg.com/filepond/dist/filepond.js"></script>
+    <script src="https://unpkg.com/filepond-plugin-file-validate-size/dist/filepond-plugin-file-validate-size.js"></script>
+    <script src="https://unpkg.com/filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.js"></script>
+
+</body>
+</html>

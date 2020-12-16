@@ -1,0 +1,45 @@
+{%extends 'recipe/base.html' %}
+{%block title_block%}Your Profile{%endblock%}
+
+{%block content%}
+{% load static %}
+	<div style="background: var(--main-black-color); margin-top: 64px;">
+	    <h2 class="list_head">List Of Your Recipes</h2>
+	    {%if recipe_list%}
+    		<h3 class="upload_recipe" ><a href="/upload_recipe">Wanna Upload More Recipes?</a></h3><br>
+		    <div class="cardsbg">
+		        <div id="dishank" class="container">
+		            <div class="row">
+
+	    {%for recipe in recipe_list%}
+		          <div class="menu-item-tile col-md-4">
+		            <div class="row">
+		              <div class="menu-item-description">
+		              	{%if recipe.first_image.images%}
+                    		<a href="{{recipe.get_absolute_url}}"><div id="recipe_list"><img src="{{recipe.first_image.images.url}}"></div></a>
+                		{%else%}
+                    		<a href="{{recipe.get_absolute_url}}"><div id="recipe_list"><img src="{% static "images/No-Image-Found.png" %}"></div></a>
+                		{%endif%}
+		                <!-- <a href="{{recipe.get_absolute_url}}"><div id="recipe_list"><img src="{{recipe.first_image.images.url}}"></div></a> -->
+		                <!-- <img class="card-img-top" src="{{recipe.image.url}}" alt=""> -->
+		                <a href="{{recipe.get_absolute_url}}"><h3 class="menu-item-title">{{recipe.title|truncatewords:6|linebreaks}}</h3></a>
+		                <div class="menu-item-price"><span>Published on {{recipe.publish}} by {{recipe.user|title}}</span></div>
+		                <div class="menu-item-details">{{recipe.description|truncatewords:40|linebreaks}}</div>
+		              </div>
+		            </div>
+		            <hr class="visible-xs">
+		          </div>
+		          {% if forloop.counter|divisibleby:3 %}
+		            <div class="clearfix visible-lg-block visible-md-block"></div>
+		          {% endif %}
+		          
+	        
+	    {%endfor%}
+	            </div>
+	        </div>
+	    </div>
+	    {%else%}
+	    	<h3 class="upload_recipe" style="font-size: 4em;color: white; padding-bottom:230px; padding-top: 155px">You haven't uploaded any recipe until now.&nbsp&nbsp<a href="/upload_recipe">Wanna Upload?</a></h3>
+	    {%endif%}
+	</div>
+{% endblock %}

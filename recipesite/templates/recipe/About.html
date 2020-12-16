@@ -1,0 +1,42 @@
+﻿{%extends 'recipe/base.html' %}
+{%block title_block%}About Us{%endblock%}
+
+{%block content%}
+{% load static %}
+
+
+    <main>
+
+        <div class="AboutBox">
+            <div class="titlebox">
+                About Us
+            </div>
+            <div class="aboutrow">
+                <div class="textbox">
+                    <h1 class="boxh1">Our Mission</h1><br />
+                    We aim to provide our users with a fantastic browsing experience to discover the recipe of their dreams.
+                </div>
+                <div id="imgbox1"></div>
+            </div>
+            <div class="aboutrow">
+                <div id="imgbox2"></div>
+                <div class="textbox">
+                    <h1 class="boxh1">The Origin of Good Food</h1><br />
+                    Our company was founded when our friend died from eating junk food.
+                </div>
+            </div>
+            <div class="aboutrow">
+                <div class="textbox">
+                    <h1 class="boxh1">Updates</h1><br />
+                    Follow our socials to keep up to date on the latest news and events.
+                </div>
+                <div id="imgbox3"></div>
+            </div>
+        </div>
+        <div class="quotebox">
+            <div class="quote">
+                " Food fit for the gods! "
+            </div>
+        </div>
+    </main>
+{% endblock %}

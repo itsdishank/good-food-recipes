@@ -1,0 +1,915 @@
+﻿:root {
+    --main-white-color: rgb(255, 254, 247);
+    --main-black-color: rgb(52, 68, 101);
+}
+
+html {
+    background-color: var(--main-white-color);
+}
+
+body {
+    box-sizing: border-box;
+    background: var(--main-white-color);
+}
+
+.anuragh{
+    padding : 0;
+    margin: auto;
+    position: relative;
+}
+
+.navhead{
+    text-align: center;
+}
+
+.anuragn {
+    overflow: hidden;
+    background-color: var(--main-white-color);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    display: inline-block;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    z-index: 99;
+}
+
+.sliderbg {
+    background: url('/static/images/text.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding: 30px;
+}
+
+main{
+    margin-top: 50px;
+}
+
+.anuragn a{
+     display: inline-block;
+     color: var(--main-black-color);
+     text-align: center;
+     text-decoration: none;
+     padding: 14px 30px;
+}
+.anuragn span img{
+    height:40px;
+    width: 40px;
+    margin-top: -4px;
+}
+.btwn {
+    border: 3px double var(--main-black-color);
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 58px;
+    margin-bottom: 0px;
+    background: var(--main-white-color);
+}
+
+.anuragn a:hover {
+    background: var(--main-black-color);
+    color: var(--main-white-color);
+}
+
+.anuragn a.active {
+    background: var(--main-black-color);
+    color: var(--main-white-color);
+}
+
+.login{
+    float: right;
+}
+.leftnav{
+    float: left;
+}
+
+.logo {
+    display: block;
+    width: 100%;
+    background-color: var(--main-black-color);
+    text-align: center;
+    font-size: 100px;
+    font-family: 'Fredoka One', cursive;
+}
+
+    .logo a {
+        color: var(--main-white-color);
+        text-align: center;
+        text-decoration: none;
+    }
+
+.logosub {
+    display: block;
+    width: 100%;
+    background-color: var(--main-black-color);
+    text-align: center;
+    font-size: 30px;
+    padding-top: 10px;
+    padding-bottom: 40px;
+}
+
+    .logosub a {
+        color: var(--main-white-color);
+        text-align: center;
+        text-decoration: none;
+        font-family: 'Pacifico', cursive;
+    }
+
+#dishank a:link {
+    text-decoration: none;
+}
+
+#dishank a:visited {
+    text-decoration: none;
+}
+
+#dishank a:hover {
+    text-decoration: none;
+}
+
+#dishank a:active {
+    text-decoration: underline;
+}
+
+.cardsbg {
+    padding: 60px 60px 60px 60px;
+    background: var(--main-black-color);
+    color: var(--main-white-color);
+}
+
+#recipe_list, #nsp, #ccd, #tfc {
+    height: 250px;
+    width: 100%;
+    margin-bottom:15px;
+    position: relative;
+}
+
+#nsp:hover, #ccd:hover, #tfc:hover {
+    box-shadow: 0 1px 5px 1px #cccccc;
+}
+#recipe_list img{
+    height: 250px;
+    width: 100%;
+  /*height: 100%;*/
+    border-radius: 25px;
+    object-fit: cover;
+}
+
+#recipe_list img:hover {
+    box-shadow: 0 1px 5px 1px #cccccc; 
+}
+
+#nsp {
+    background: url('/static/images/NeopolitainPizza.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+#ccd {
+    background: url('/static/images/Classic Chocolate Desserts.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+#tfc {
+    background: url('/static/images/Traditional French Cuisine.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+/*#dishank div.date {
+    position: absolute;
+    bottom: -32px;
+    right: 0;
+    height: 32px;
+    width: 100%;
+    font-size: 1em;
+    background-color: #f2e6c4;
+    color: #b3b3b3;
+    font-size: 14px;
+}
+*/
+
+
+/*#dishank span.price {
+    position: absolute;
+    right: 0;
+    font-weight: bold;
+    color: black;
+    font-size: 14px;
+}
+
+#dishank div.text {
+    padding-top: 6px;
+}
+*/
+#dishank p {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+}
+
+.hi-slide {
+    position: relative;
+    width: 754px;
+    margin: auto;
+}
+
+    .hi-slide .hi-next,
+    .hi-slide .hi-prev {
+        position: absolute;
+        top: 50%;
+        width: 40px;
+        height: 40px;
+        margin-top: -20px;
+        border-radius: 50px;
+        line-height: 40px;
+        text-align: center;
+        cursor: pointer;
+        background-color: #fff;
+        color: black;
+        transition: all 0.6s;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+        .hi-slide .hi-next:hover,
+        .hi-slide .hi-prev:hover {
+            opacity: 1;
+            background-color: #fff;
+        }
+
+    .hi-slide .hi-prev {
+        left: -60px;
+    }
+
+    .hi-slide .hi-next {
+        right: -60px;
+    }
+
+    .hi-slide > ul {
+        list-style: none;
+        position: relative;
+        width: 754px;
+        height: 292px;
+        margin: 0;
+        padding: 0;
+    }
+
+
+        .hi-slide > ul > li {
+            overflow: hidden;
+            position: absolute;
+            z-index: 0;
+            left: 377px;
+            top: 146px;
+            width: 0;
+            height: 0;
+            margin: 0;
+            padding: 0;
+            border: 3px solid #fff;
+            background-color: #333;
+            cursor: pointer;
+        }
+
+            .hi-slide > ul > li > img {
+                width: 100%;
+                height: 100%;
+                background-position: center;
+            }
+
+.quotebox {
+    width: 100%;
+    padding: 60px;
+    background-color: var(--main-black-color);
+}
+
+.quote {
+    margin: auto;
+    font-size: 80px;
+    color: var(--main-white-color);
+    text-align: center;
+    width: 40%;
+    font-family: 'Pacifico', cursive;
+}
+
+.aboutrow{
+    height: 500px;
+    width: 100%;
+}
+
+.textbox {
+    float: left;
+    display: block;
+    background-color: var(--main-black-color);
+    color: var(--main-white-color);
+    font-size: 30px;
+    width: 50%;
+    height: 100%;
+    padding: 110px;
+    text-align: center;
+}
+
+#imgbox1 {
+    float: left;
+    display: block;
+    background: url("/static/images/b1.jpg") no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 50%;
+    height: 500px;
+}
+
+#imgbox2 {
+    float: left;
+    display: block;
+    background: url("/static/images/b2.jpg") no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 50%;
+    height: 500px;
+}
+
+#imgbox3 {
+    float: left;
+    display: block;
+    background: url("/static/images/b3.jpg") no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 50%;
+    height: 500px;
+}
+
+.boxh1{
+    font-weight: 700;
+    font-size: 40px;
+}
+
+.titlebox {
+    font-size: 100px;
+    padding:  90px 30px 30px 30px;
+    text-align: center;
+    font-weight: 900;
+    font-family: 'Fredoka One', cursive;
+    color: var(--main-black-color)
+}
+
+.list_head {
+    font-size: 50px;
+    padding:  50px 30px 0px 30px;
+    text-align: center;
+    /*font-weight: 900;*/
+    font-family: 'Fredoka One', cursive;
+    color: white;
+    text-decoration: underline;
+}
+
+.upload_recipe{
+    margin-top: 30px;
+    text-align: center;
+    margin-bottom: 0px;
+}
+
+.upload_recipe a {
+    text-decoration: none;
+}
+
+.page-footer {
+	padding: 65px 0px 0px 0px;
+	margin-bottom: 0px;
+	text-align: center;
+	color:#ffffff;
+	background:#1e2732;
+	height: 300px
+}
+.page-footer h1 {
+	font-size:7em;
+}
+
+.page-footer a.navthings{
+	margin: 10px 10px 10px 10px;
+}
+
+.page-footer h2{
+	font-size: 1.5em;
+	font-weight: bold;
+}
+
+.upperdiv{
+	padding: 0;
+}
+.abovefooter {
+  height: 400px;
+  width: 100%;
+  padding: 11%;
+}
+.abovefooter h1{
+	 color: white;
+	 font-size: 20px;
+	     font-family: 'Oswald', Arial, Helvetica, 'Nimbus Sans L', sans-serif;
+	         font-weight: normal;
+    font-style: normal;
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-bottom: 12px;
+}
+hr{
+	height:3.5px;
+	border:3.5px;
+	margin-bottom: 13px;
+	background-color:white;
+    opacity: 0.3;
+}
+h1+hr{
+	height:1px;
+	border:1px;
+	marker-top:10px;
+	margin-bottom: 13px;
+	background-color:white;
+
+}
+#giftcard {
+  background: #92a8d1;;
+  color: white;
+}
+    #giftcard a:hover {
+        color: #ff7055;
+        background-color: var(--main-black-color);
+        text-decoration: none;
+    }
+#email{
+	background: #ff7055;
+}
+
+#store{
+	background: #2c3b4b;
+}
+
+.abovefooter p{
+	font-size: 20px;
+	margin-bottom: 37px;
+	color: white;
+
+}
+
+.abovefooter a{
+
+    outline: 0;
+    text-decoration: none;
+    	padding-right: 30px;
+    padding-left: 30px;
+    background-color: #ff7055;
+    color: #ffffff;
+    border-color: #ff7055;
+    font-family: 'Karla', Arial, Helvetica, 'Nimbus Sans L', sans-serif;
+    font-size: 16px;
+    line-height: 50px;
+    font-weight: normal;
+    font-style: normal;
+    text-transform: uppercase;
+    white-space: nowrap;
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    border-width: 0;
+    border-style: solid;
+}
+.abovefooter a:hover{
+    background-color: #ffffff;
+    color: var(--main-black-color);
+}
+
+#store a{
+	background-color: #485567;
+    color: #ffffff;
+    border-color: #485567;
+    color: #ffffff;
+}
+
+#store a:hover{
+    background-color: #ffffff;
+    color: #485567;
+}
+
+input[type=email],input[type=email]:hover,input[type=email]:focus {
+    font-family: 'Lora', Arial, Helvetica, 'Nimbus Sans L', sans-serif;
+    font-size: 15px;
+    line-height: 28px;
+    font-weight: normal;
+    font-style: italic;
+    height: 50px;
+    padding: 10px 20px;
+    max-width: 100%;
+    border-width: 1px;
+    border-style: solid;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    border-color: white;
+    border-width: 0;
+    background: #ff7055;
+    color: #ffffff;
+    background-color: #ffffff1a;
+    width: 100%;
+}
+input[type=submit] {
+    font-family: 'Lora', Arial, Helvetica, 'Nimbus Sans L', sans-serif;
+    font-size: 15px;
+    line-height: 28px;
+    font-weight: normal;
+    height: 50px;
+    padding: 10px 20px;
+    max-width: 100%;
+    border-width: 1px;
+    border-style: solid;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    border-color: white;
+    background-color: #ffffff;
+    text-align: left;
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: lightgrey;
+  opacity: 1; /* Firefox */
+}
+
+.container-fluid{
+    background: var(--main-white-color);
+}
+@media screen and (min-width: 1680px) {
+  .container-fluid {
+    width: 1640px;
+	}
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1440px) {
+  .container-fluid {
+    width: 1010px;
+    }
+}
+
+@media screen and (min-width: 1440px) and (max-width: 1680px) {
+  .container-fluid {
+    width: 1400px;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+	input[type=email],input[type=email]:hover,input[type=email]:focus {
+        width: 70%;
+	}
+	input[type=submit],input[type=submit]:hover,input[type=submit]:focus {
+        width: 30%;
+	}
+    br.submit {
+        display: none;
+    }
+}
+
+/* When the screen is less than 1000 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the anuragn (.icon) */
+@media screen and (max-width: 1000px) {
+    .anuragn a:not(.active) {
+        display: none;
+    }
+
+    .anuragn a.icon {
+        float: right;
+        display: block;
+    }
+
+    main{
+        margin-top: 50px;
+    }
+
+    header{
+        position:fixed;
+        width:100%;
+        z-index: 99;
+    }
+}
+@media screen and (min-width: 1001px) {
+    .anuragn a.icon {
+        display: none;
+    }
+}
+
+/* The "responsive" class is added to the anuragn with JavaScript when the user clicks on the icon. This class makes the anuragn look good on small screens (display the links vertically instead of horizontally) */
+@media screen and (max-width: 1000px) {
+    .anuragn.responsive {
+        position: relative;
+    }
+
+        .anuragn.responsive a.icon {
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+
+        .anuragn.responsive a {
+            float: none;
+            display: block;
+            text-align: left;
+        }
+}
+
+/* SINGLE CATEGORY PAGE */
+/*
+ .recipe_list img{
+    padding-right:100px;
+    padding-left:100px;
+    width: 100%;
+    margin-right:auto;
+    margin-left:auto;
+    background: var(--main-black-color);
+ }/*
+.recipe-list {
+    mar
+}*/
+
+.menu-item-tile {
+  margin-bottom: 40px;
+  /*border-style: groove; */
+  font-family: 'Roboto', sans-serif;
+      font-family: 'ABeeZee';
+
+  /*font-family: 'Fredoka One', cursive;*/
+
+}
+.menu-item-tile hr {
+  width: 80%;
+}
+
+.menu-item-description>div.menu-item-price {
+  font-size: 1.1em;
+  text-align: left;
+  margin-top: -10px;
+  margin-right: -15px;
+  color: yellow;
+  font-style: italic;       
+}/*
+.menu-item-tile .menu-item-price span {
+  font-size: .9em;
+}*/
+
+.menu-item-description {
+  padding-right: 30px;
+}
+
+
+/*p.menu-item-details {
+  font-size: 2em;
+  width: 100%;
+  color: yellow;
+}
+*/
+h3.menu-item-title {
+  font-size: 4em;
+  margin: 0 0 10px;
+  width: 100%;
+  color: white;
+  font-weight: 100px;
+  /*word-wrap: break-word;*/
+  /*white-space: normal;*/
+}
+
+
+.menu-item-description>div.menu-item-details {
+  font-size: 1.5em;
+  /*font-style: italic;*/
+  margin-top: 10px;
+  width: 100%;
+  color: white;
+}
+/*.menu-item-description {
+  padding-right: 30px;
+}
+*//*h3.menu-item-title {
+  margin: 0 0 10px;
+}*/
+/*.menu-item-details {
+  font-size: .9em;
+  font-style: italic;
+}
+*/
+.responsive {
+  width: 250px;
+  height: 150px  ;
+}
+
+
+/* END SINGLE CATEGORY PAGE */
+
+
+/*recipe details page start*/
+
+.detailspage fieldset,.detailspage label {
+    margin: 0;
+    padding: 0;
+}
+.detailspage .rating {
+    border: none;
+    float: left;
+}
+
+    .rating > input {
+        display: none;
+    }
+
+.detailspage .rating > label:before {
+        margin: 5px;
+        font-size: 1.25em;
+        font-family: FontAwesome;
+        display: inline-block;
+        content: "\f005";
+    }
+
+.detailspage .rating > .half:before {
+        content: "\f089";
+        position: absolute;
+    }
+
+    .detailspage .rating > label {
+        color: #ddd;
+        float: right;
+    }
+
+    /***** CSS Magic to Highlight Stars on Hover *****/
+
+    .detailspage .rating > input:checked ~ label, /* show gold star when clicked */
+    .detailspage .rating:not(:checked) > label:hover, /* hover current star */
+    .detailspage .rating:not(:checked) > label:hover ~ label {
+        color: #FFD700;
+    }
+        /* hover previous stars in list */
+
+        .detailspage .rating > input:checked + label:hover, /* hover current star when changing rating */
+        .detailspage .rating > input:checked ~ label:hover,
+        .detailspage .rating > label:hover ~ input:checked ~ label, /* lighten current selection */
+        .detailspage .detailspage .rating > input:checked ~ label:hover ~ label {
+            color: #FFED85;
+        }
+
+@media screen and (max-height: 450px) {
+    .detailspage .sidenav {
+        padding-top: 15px;
+    }
+
+        .detailspage .sidenav a {
+            font-size: 18px;
+        }
+}
+
+.detailspage .recipeholder{
+    margin: auto;
+    padding: 80px;
+    background-color: var(--main-black-color);
+    color: var(--main-white-color);
+    font-family: 'Roboto', sans-serif;
+    font-size: 25px;
+    width: 80%;
+    border-radius: 15px 15px 0 0;
+    /*border: 3px solid var(--main-black-color);*/
+}
+
+.detailspage .recipetitle{
+    font-size: 45px;
+    font-family: 'Fredoka One', cursive;
+    font-weight: 500;
+}
+
+.detailspage .reciperating{
+    width: 100%;
+    height: 70px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+
+.recipefluid img{
+    height: 740px;
+    width: 100%;
+  /*height: 100%;*/
+    border-radius: 25px;
+    object-fit: cover;
+}
+
+.detailspage .recipeprop{
+    background: var(--main-white-color);
+    text-align: center;
+    color: var(--main-black-color);
+    height: 740px;
+    /*height: 100%;*/
+    border-radius: 15px;
+}
+
+.detailspage .recipeprop1{
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+
+.detailspage .recipepropdetails{
+    padding: 20px;
+    font-size: 20px;
+    display: block;
+}
+
+.detailspage .recipepropdetails h3{
+    font-size: 30px;
+    font-family: 'Fredoka One', cursive;
+    font-weight: 400;
+}
+
+.detailspage .recipeingredients{
+    font-size: 25px;
+    background: var(--main-white-color);
+    color: var(--main-black-color);
+    font-weight: 500;
+    border-radius: 15px;
+    margin-top: 25px;
+    padding: 20px;
+    margin-left: 15px;
+}
+
+.detailspage .recipeingredients h2{
+    font-weight:700;
+    font-size: 30px;
+    font-family: 'Fredoka One', cursive;
+}
+
+.detailspage .recipesteps {
+    font-size: 25px;
+    background: var(--main-white-color);
+    color: var(--main-black-color);
+    font-weight: 500;
+    border-radius: 15px;
+    margin-top: 25px;
+    padding: 20px;
+}
+
+.detailspage .recipesteps h2 {
+    font-weight: 700;
+    font-size: 30px;
+    font-family: 'Fredoka One', cursive;
+}
+
+.detailspage .recipesteps span {
+    /*font-weight: 20;*/
+    font-size: 25px;
+    font-family: 'Fredoka One', cursive;
+}
+
+/*recipe details page end*/
+
+.detailspage .recipepropdetails span{
+    font-size: 25px;
+    background: var(--main-white-color);
+    color: var(--main-black-color);
+    font-weight: 500;
+/*    border-radius: 15px;
+    margin-top: 25px;
+    padding: 20px;*/
+}
+
+main.upload_form {
+    margin: 100px 50px 50px 50px;
+}
+
+.tagbox{
+    border: 1px solid orange;
+    display: inline;
+}
+
+.pagination {
+    margin-top: 1em;
+}
+
+.pagination a {
+    text-decoration: none;
+}
+
+.pagination-number {
+    padding: 0.5em 0.8em;
+    border-radius: 2px;
+    color: #fff;
+    background-color: #6D85C7;
+}
+
+.pagination-number:hover, .pagination-current {
+    background-color: #3354AA;
+}
+
+.pagination-action {
+    margin: 0 0.1em;
+    display: inline-block;
+    padding: 0.5em 0.5em;
+    color: #B9B9B9;
+    font-size: 1.3em;
+}
+
+.pagination-action:hover,
+.pagination-previous,
+.pagination-next {
+    color: #3354AA;
+}
