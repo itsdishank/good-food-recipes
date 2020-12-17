@@ -3,7 +3,7 @@
 
 {%block content%}
 {% load static %}
-	<div style="background: var(--main-black-color); margin-top: 64px;">
+	<div class="profilediv" style="background: var(--main-black-color);">
 	    <h2 class="list_head">List Of Your Recipes</h2>
 	    {%if recipe_list%}
     		<h3 class="upload_recipe" ><a href="/upload_recipe">Wanna Upload More Recipes?</a></h3><br>
@@ -39,7 +39,7 @@
 	        </div>
 	    </div>
 	    {%else%}
-	    	<h3 class="upload_recipe" style="font-size: 4em;color: white; padding-bottom:230px; padding-top: 155px">You haven't uploaded any recipe until now.&nbsp&nbsp<a href="/upload_recipe">Wanna Upload?</a></h3>
+	    	<h3 class="upload_recipe" style="font-size: 4em;color: white; padding-bottom:250px; padding-top: 155px">You haven't uploaded any recipe until now.&nbsp&nbsp<a href="/upload_recipe">Wanna Upload?</a></h3>
 	    {%endif%}
 	</div>
 {% endblock %}

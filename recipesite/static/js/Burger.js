@@ -6,5 +6,11 @@ function myFunction() {
   } else {
     x.className = "anuragn";
   }
+  var y = document.getElementById("mainclear");
+    if (y.className === "maincut") {
+        y.className += " responsive";
+    } else {
+        y.className = "anuragn";
+    }
 }
 
