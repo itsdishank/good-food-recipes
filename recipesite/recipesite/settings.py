@@ -27,9 +27,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 SECRET_KEY = '!*t7h&fotw!%vcq72)m6yic=)pqmp#7qv)ox9)*lx!rp6mxkh*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['itsthedishank.pythonanywhere.com',]
+ALLOWED_HOSTS = []
 
 
 # Application definition
